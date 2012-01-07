@@ -1,0 +1,31 @@
+Package: wikipedia-mode
+Section: extensions
+License: GPL-2+
+Depends: emacs (>= 22)
+Status: unmaintained
+Archive:
+Compat:
+Maintainer: Jari Aalto <jari.aalto@cante.net>
+Bugs:
+Upstream: Uwe Brauer <oub@mat.ucm.es>
+Upstream-Bugs:
+Vcs-Type: http
+Vcs-Url: http://www.emacswiki.org/emacs/download/wikipedia-mode.el
+Vcs-Browser:
+Homepage:
+Wiki: http://www.emacswiki.org/emacs/WikipediaMode
+Commentary: wikipedia-mode.el
+Description: major mode for editing Wikipedia articles off-line
+ A major mode for editing articles written
+ in the markup language used by Wikipedia, the free on-line
+ encyclopedia <http://www.wikipedia.org>.
+ .
+ Note: 2012-01-07 the code hasn't been touched since 2006. The
+ status in EmacsWiki states that this mode is no longer maintained
+ and suggest replacement mediawiki.el
+ .
+ PATCHES:
+ - Support Emacs 23 visual-line-mode
+ - wikipedia-mode-hook variable is formally defined.
+   Can be set before package is loaded. E.g. you can remove
+   `wikipedia-turn-on-longlines' in preference of `truncate-mode'.
