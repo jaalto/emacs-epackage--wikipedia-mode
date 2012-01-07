@@ -1,0 +1,7 @@
+2012-01-07 Sat  Jari Aalto  <jari.aalto@cante.net>
+
+	* wikipedia-mode.el (wikipedia-turn-on-longlines): Add support
+	for Emacs 23 `visual-line-mode'.
+	(wikipedia-mode-hook): New user variable. Define all support
+	hooks here.
+
