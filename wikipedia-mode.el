@@ -946,9 +946,12 @@ Some simple editing commands.
 
 (defun wikipedia-turn-on-longlines ()	;Version:1.58
   "Turn on longlines-mode if it is defined."
-  (if (functionp 'longlines-mode)
-      (longlines-mode 1)))
-(add-hook 'wikipedia-mode-hook 'wikipedia-turn-on-longlines)
+  (cond
+   ((functionp 'visual-line-mode)	; Emacs 23
+    (visual-line-mode 1))
+   ((functionp 'longlines-mode)
+    (longlines-mode 1))))
+
 (set (make-local-variable 'auto-fill-inhibit-regexp) "^[ *#:|;]")
 
 ;;}}}
@@ -1304,8 +1307,6 @@ as does wikipedia-unfill-region."
 
 ;;{{{ outline and outline-magic stuff
 
-(add-hook 'wikipedia-mode-hook 'wikipedia-turn-on-outline-minor-mode)
-
 (defun wikipedia-outline-cycle ()
   (interactive)
   (if (functionp 'outline-cycle)
@@ -1378,6 +1379,11 @@ does not promote the whole tree!"
   :group 'data)
 
 ;;; User Variables:
+
+(defvar wikipedia-mode-hook
+  '(wikipedia-turn-on-longlines
+    wikipedia-turn-on-outline-minor-mode)
+  "*Hook to run when `'wikipedia-mode' is turned on.")
 
 (defcustom wikipedia-draft-mode-hook nil
   "*Functions run upon entering wikipedia-draft-mode."
