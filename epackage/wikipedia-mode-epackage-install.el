@@ -8,7 +8,7 @@ matches *wikipedia.org* turn mode on."
   (when (and (stringp buffer-file-name)
 	     (string-match "wikipedia\\.org" buffer-file-name)
 	     (fboundp 'wikipedia-mode))
-    (wikipedia-mode 1)))
+    (wikipedia-mode)))
 
 (add-hook 'find-file-hook 'wikipedia-mode-epackage-maybe-turn-on)
 
